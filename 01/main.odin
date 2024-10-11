@@ -7,7 +7,7 @@ import "core:strconv"
 import "core:strings"
 import "core:testing"
 
-import "../utils/file"
+import "../utils"
 
 Vector2 :: struct {
     x: int,
@@ -22,7 +22,7 @@ S :: Vector2{0, -1}
 W :: Vector2{-1, 0}
 
 main :: proc() {
-    input := file.read_input()
+    input := utils.read_input()
     steps, _ := strings.split(input, ", ")
     fmt.printfln("Part 1: %i", part_1(steps))
     fmt.printfln("Part 2: %i", part_2(steps))
