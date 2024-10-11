@@ -6,9 +6,9 @@
         {
             "label": "Init",
             "type": "shell",
-            "command": "odin run ${workspaceFolder}/tools -out:build/tool-init -- ${input:directoryName}",
+            "command": "odin run ${workspaceFolder}/tools -out:build/tools -- ${input:directoryName}",
             "windows": {
-                "command": "odin run ${workspaceFolder}\\tools -out:build\\tool-init.exe -- ${input:directoryName}",
+                "command": "odin run ${workspaceFolder}\\tools -out:build\\tools.exe -- ${input:directoryName}",
             },
             "problemMatcher": [],
             "group": "none"
