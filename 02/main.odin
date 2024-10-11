@@ -1,8 +1,6 @@
 package main
 
 import "core:fmt"
-import "core:os"
-import "core:strconv"
 import "core:strings"
 import "core:testing"
 import "core:unicode/utf8"
