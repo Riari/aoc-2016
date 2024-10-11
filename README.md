@@ -6,7 +6,7 @@ Solutions for [Advent of Code 2016](https://adventofcode.com/2016) in [Odin](htt
 |---------|----------|---------------|
 | Day 1   | Part 1   | ✅            |
 |         | Part 2   | ✅            |
-| Day 2   | Part 1   | ❌            |
+| Day 2   | Part 1   | ✅            |
 |         | Part 2   | ❌            |
 | Day 3   | Part 1   | ❌            |
 |         | Part 2   | ❌            |
