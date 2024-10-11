@@ -15,7 +15,6 @@ Vector2 :: struct {
 }
 
 LEFT :: 'L'
-RIGHT :: 'R'
 
 N :: Vector2{0, 1}
 E :: Vector2{1, 0}
@@ -24,7 +23,7 @@ W :: Vector2{-1, 0}
 
 main :: proc() {
     input := file.read_input()
-    steps, _ := strings.split(input, " ")
+    steps, _ := strings.split(input, ", ")
     fmt.printfln("Part 1: %i", part_1(steps))
     fmt.printfln("Part 2: %i", part_2(steps))
 }
@@ -37,26 +36,20 @@ simulate :: proc(steps: []string, stop_on_seen_twice: bool = false) -> int {
     position := Vector2{0, 0}
     compass := [4]Vector2{N, E, S, W}
     heading := 0 // north
-    seen := make(map[Vector2]int)
+    seen := map[Vector2]bool{}
 
     outer: for step in steps {
-        direction := step[0]
+        direction := step[0] == LEFT ? -1 : 1
         count, ok := strconv.parse_int(step[1:])
-        if direction == LEFT {
-            heading = (heading - 1) %% 4
-        } else {
-            heading = (heading + 1) %% 4
-        }
+        assert(ok)
+        heading = (heading + direction) %% 4
 
         for _ in 0..<count {
             position = add(position, compass[heading])
 
             if stop_on_seen_twice {
-                seen_count, exists := &seen[position]
-                seen[position] = exists ? seen[position] + 1 : 1
-                if seen[position] == 2 {
-                    break outer
-                }
+                if position in seen do break outer
+                seen[position] = true
             }
         }
     }
