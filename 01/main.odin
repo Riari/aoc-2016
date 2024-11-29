@@ -41,7 +41,9 @@ simulate :: proc(steps: []string, stop_on_seen_twice: bool = false) -> int {
     outer: for step in steps {
         direction := step[0] == LEFT ? -1 : 1
         count, ok := strconv.parse_int(step[1:])
-        assert(ok)
+        if !ok {
+            continue
+        }
         heading = (heading + direction) %% 4
 
         for _ in 0..<count {
